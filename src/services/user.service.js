@@ -11,7 +11,9 @@ const createUser = async (userBody) => {
   if (await User.isEmailTaken(userBody.email)) {
     throw new ApiError(httpStatus.BAD_REQUEST, 'Email already taken');
   }
-  const user = await User.create(userBody);
+  const userToCreate = userBody;
+  userToCreate.isPatient = false;
+  const user = await User.create(userToCreate);
   return user;
 };
 
