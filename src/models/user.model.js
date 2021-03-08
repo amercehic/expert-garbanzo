@@ -40,6 +40,10 @@ const userSchema = mongoose.Schema(
       enum: roles,
       default: 'user',
     },
+    isPatient: {
+      type: Boolean,
+      required: true,
+    },
   },
   {
     timestamps: true,
